@@ -1,15 +1,19 @@
-{{!-- app_server/views/layouts/layout.hbs --}}
-{{!-- This is my main layout. All pages will inject their content here. --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>{{title}}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+  {{!-- Express serves /public as the web root, so css/style.css becomes /stylesheets/style.css --}}
+  <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-  {{{body}}}
+  <div id="background">
+    <div id="page">
+      {{> header}}
+      {{{body}}}
+    </div>
+    {{> footer}}
+  </div>
 </body>
 </html>

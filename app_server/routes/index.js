@@ -1,16 +1,17 @@
 // app_server/routes/index.js
-// This is where I define my routes and hook them to the right controllers.
-
 const express = require('express');
 const router = express.Router();
+const pages = require('../controllers/pages');
 
-const mainCtrl = require('../controllers/main');
-const travelCtrl = require('../controllers/travel');
+// Home + Travel
+router.get('/', pages.index);
+router.get('/travel', pages.travel);
 
-// home route
-router.get('/', mainCtrl.index);
-
-// travel route
-router.get('/travel', travelCtrl.travel);
+// New pages
+router.get('/about', pages.about);
+router.get('/contact', pages.contact);
+router.get('/meals', pages.meals);
+router.get('/news', pages.news);
+router.get('/rooms', pages.rooms);
 
 module.exports = router;

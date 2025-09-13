@@ -23,6 +23,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'app_server', 'views'));
+app.set('view engine', 'hbs');
+app.set('view options', { layout: 'layouts/layout' }); // default layout
 
 // Bring in my routes (this points to app_server/routes/index.js)
 const indexRouter = require('./app_server/routes/index');
