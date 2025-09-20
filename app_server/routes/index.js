@@ -1,17 +1,18 @@
-// app_server/routes/index.js
+// Public routes: clean split between home, dynamic travel, and static pages.
 const express = require('express');
 const router = express.Router();
-const pages = require('../controllers/pages');
 
-// Home + Travel
-router.get('/', pages.index);
-router.get('/travel', pages.travel);
+const mainCtrl   = require('../controllers/main');
+const travelCtrl = require('../controllers/travel');
+const pagesCtrl  = require('../controllers/pages');
 
-// New pages
-router.get('/about', pages.about);
-router.get('/contact', pages.contact);
-router.get('/meals', pages.meals);
-router.get('/news', pages.news);
-router.get('/rooms', pages.rooms);
+router.get('/', mainCtrl.index);          // home
+router.get('/travel', travelCtrl.travel); // dynamic (JSON-backed)
+
+router.get('/about', pagesCtrl.about);
+router.get('/contact', pagesCtrl.contact);
+router.get('/meals', pagesCtrl.meals);
+router.get('/news', pagesCtrl.news);
+router.get('/rooms', pagesCtrl.rooms);
 
 module.exports = router;

@@ -1,13 +1,4 @@
-// app_server/controllers/pages.js
-// Public site controllers. Each action renders an HBS view with a title.
-// Using a single file keeps things tidy for static pages.
-
-const index = (req, res) =>
-  res.render('index', { title: 'Welcome to Travlr Getaways', layout: 'layouts/layout' });
-
-const travel = (req, res) =>
-  res.render('travel', { title: 'Travel', layout: 'layouts/layout' });
-
+// Static pages only. Keep dynamic data out of here.
 const about = (req, res) =>
   res.render('about', { title: 'About', layout: 'layouts/layout' });
 
@@ -23,4 +14,4 @@ const news = (req, res) =>
 const rooms = (req, res) =>
   res.render('rooms', { title: 'Rooms', layout: 'layouts/layout' });
 
-module.exports = { index, travel, about, contact, meals, news, rooms };
+module.exports = { about, contact, meals, news, rooms };

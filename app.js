@@ -1,6 +1,5 @@
 // app.js
-// Main Express setup file. This is where I wire everything together for Module 2.
-// Moving from static HTML (Module 1) to MVC + Handlebars (Module 2).
+// Express setup for HBS + MVC (Module 2/3).
 
 const express = require('express');
 const path = require('path');
@@ -10,24 +9,22 @@ const logger = require('morgan');
 
 const app = express();
 
-// Tell Express where to find my views and set HBS as the engine
+// views + engine
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'hbs');
 
-// Hook in my partials (header/footer, etc.)
+// partials + helpers
 hbs.registerPartials(path.join(__dirname, 'app_server', 'views', 'partials'));
+hbs.registerHelper('year', () => new Date().getFullYear());
 
-// Standard middleware stuff (logging, parsing JSON, cookies, static files)
+// middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.set('view engine', 'hbs');
-app.set('view options', { layout: 'layouts/layout' }); // default layout
 
-// Bring in my routes (this points to app_server/routes/index.js)
+// routes
 const indexRouter = require('./app_server/routes/index');
 app.use('/', indexRouter);
 

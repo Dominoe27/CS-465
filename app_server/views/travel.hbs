@@ -1,28 +1,32 @@
+{{!-- app_server/views/travel.hbs --}}
 <div id="contents">
   <div class="box">
     <div>
       <div class="body">
-        <h1>Travel</h1>
-        <ul id="sites">
-          <li>
-            <a href="/travel"><img src="/images/reef1.jpg" alt="Img"></a>
-            <h2><a href="/travel">Gale Reef</a></h2>
-            <p>Sed et augue lorem…</p>
-            <p>Sed consequat libero ut turpis…</p>
-          </li>
-          <li>
-            <a href="/travel"><img src="/images/reef2.jpg" alt="Img"></a>
-            <h2><a href="/travel">Dawson’s Reef</a></h2>
-            <p>Integer magna leo…</p>
-            <p>vulputate at est…</p>
-          </li>
-          <li>
-            <a href="/travel"><img src="/images/reef3.jpg" alt="Img"></a>
-            <h2><a href="/travel">Claire’s REEF</a></h2>
-            <p>Donec sed felis risus…</p>
-            <p>Vulputate eget libero…</p>
-          </li>
-        </ul>
+        <h1>{{title}}</h1>
+
+        {{!-- render trips from data/trips.json; use length so empty arrays show the fallback --}}
+        {{#if trips.length}}
+          <ul id="sites">
+            {{#each trips}}
+              <li>
+                <a href="/travel">
+                  <img src="/images/{{image}}" alt="{{name}}" loading="lazy">
+                </a>
+                <h2><a href="/travel">{{name}}</a></h2>
+                <p>{{description}}</p>
+                <p>
+                  Starts {{start}} • {{length}} nights • {{location}} •
+                  ${{price}}{{#if perPerson}} per person{{/if}}
+                </p>
+              </li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <ul id="sites">
+            <li>No trips available.</li>
+          </ul>
+        {{/if}}
       </div>
     </div>
   </div>

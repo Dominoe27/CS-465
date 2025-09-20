@@ -1,0 +1,35 @@
+[
+  {
+    "code": "GALE2025",
+    "name": "Gale Reef",
+    "price": 1299,
+    "length": 7,
+    "start": "2025-11-10",
+    "location": "Gale Reef",
+    "perPerson": true,
+    "image": "reef1.jpg",
+    "description": "Sed et augue lorem. Sed consequat libero ut turpis."
+  },
+  {
+    "code": "DAWS2025",
+    "name": "Dawson's Reef",
+    "price": 1199,
+    "length": 6,
+    "start": "2025-11-20",
+    "location": "Dawson's Reef",
+    "perPerson": true,
+    "image": "reef2.jpg",
+    "description": "Integer magna leo. Vulputate at est."
+  },
+  {
+    "code": "CLAI2025",
+    "name": "Claire's REEF",
+    "price": 999,
+    "length": 5,
+    "start": "2025-12-02",
+    "location": "Claire's Reef",
+    "perPerson": true,
+    "image": "reef3.jpg",
+    "description": "Donec sed felis risus. Vulputate eget libero."
+  }
+]
