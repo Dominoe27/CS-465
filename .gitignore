@@ -1,2 +1,7 @@
 node_modules/
 *.zip
+node_modules/ 
+.env 
+*.env 
+npm-debug.log* 
+.DS_Store 

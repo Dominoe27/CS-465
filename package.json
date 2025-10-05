@@ -13,8 +13,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node data/seedTrips.js"
+    "seed:trips": "node scripts/seed-trips.js"
   },
   "repository": {
     "type": "git",
@@ -27,4 +26,5 @@
     "url": "https://github.com/Dominoe27/CS-465/issues"
   },
   "homepage": "https://github.com/Dominoe27/CS-465#readme"
+  
 }

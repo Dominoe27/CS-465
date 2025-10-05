@@ -5,18 +5,22 @@
       <div class="body">
         <h1>{{title}}</h1>
 
-        {{!-- render trips from data/trips.json; use length so empty arrays show the fallback --}}
+        {{#if message}}
+          <p>{{message}}</p>
+        {{/if}}
+
         {{#if trips.length}}
           <ul id="sites">
             {{#each trips}}
               <li>
-                <a href="/travel">
+                {{!-- during dev, make the image link show the raw API doc for quick checks --}}
+                <a href="/api/trips/{{code}}">
                   <img src="/images/{{image}}" alt="{{name}}" loading="lazy">
                 </a>
-                <h2><a href="/travel">{{name}}</a></h2>
+                <h2><a href="/api/trips/{{code}}">{{name}}</a></h2>
                 <p>{{description}}</p>
                 <p>
-                  Starts {{start}} • {{length}} nights • {{location}} •
+                  Starts {{start}} • {{length}} nights • {{resort}} •
                   ${{price}}{{#if perPerson}} per person{{/if}}
                 </p>
               </li>
