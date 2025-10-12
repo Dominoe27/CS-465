@@ -39,25 +39,24 @@ app.use('/api', apiRouter);
 // simple health check for uptime monitors
 app.get('/health', (_req, res) => res.json({ ok: true }));
 
-// 404 handling with API awareness
+// 404 handling with API awareness (no HBS templates required)
 app.use((req, res) => {
   if (req.path.startsWith('/api')) {
     return res.status(404).json({ message: 'Not found' });
   }
-  // if you don’t have a 404.hbs yet, swap this for res.status(404).send('Not found')
-  res.status(404).render('404', { title: 'Not found' });
+  // keep this simple so missing templates don’t crash the server
+  res.status(404).send('Not found');
 });
 
-// generic error handler; don’t leak stack traces in prod
+// Generic error handler (don’t try to render a view)
 app.use((err, req, res, _next) => {
   const status = err.status || 500;
+  const message = err.message || 'Server error';
+
   if (req.path.startsWith('/api')) {
-    return res.status(status).json({ message: err.message || 'Server error' });
+    return res.status(status).json({ message });
   }
-  res.status(status).render('error', {
-    message: err.message || 'Server error',
-    error: process.env.NODE_ENV === 'development' ? err : {}
-  });
+  res.status(status).send(message);
 });
 
 module.exports = app;

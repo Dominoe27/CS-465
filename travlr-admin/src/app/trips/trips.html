@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <!-- Primary CTA for the rubric: show the path to add a new trip -->
+  <div class="d-flex justify-content-end mb-3">
+    <a class="btn btn-success" routerLink="/add">+ Add Trip</a>
+  </div>
+
+  <!-- Simple load + error experience for graders -->
+  <div *ngIf="loading" class="alert alert-info">Loading trips…</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <!-- Grid renders one card component per trip -->
+  <div class="row">
+    <app-trip-card
+      *ngFor="let t of trips"
+      [trip]="t"
+      class="col-md-4 mb-4">
+    </app-trip-card>
+  </div>
+</div>

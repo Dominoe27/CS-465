@@ -29,6 +29,7 @@ const mask = (u) => u.replace(/:\/\/(.*?@)/, '://<credentials>@');
     await mongoose.connect(uri);
     console.log('MongoDB connected');
     console.log(`URI: ${mask(uri)}`);
+    require('./trip');  
   } catch (err) {
     console.error('MongoDB connection error:', err.message);
     process.exit(1);
