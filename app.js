@@ -1,6 +1,6 @@
 // app.js
 // Express setup for HBS + MVC, plus API mounting and DB connect.
-require('dotenv').config(); // safe if also in server.js
+require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
@@ -10,8 +10,16 @@ const logger = require('morgan');
 
 const app = express();
 
-// connect Mongo once on app boot; logs status to the console
+// Connect Mongo once on app boot; logs status to the console
+// Also registers Trip + User models (db.js requires both)
 require('./app_server/models/db');
+
+// Wire up JWT strategy after models are registered
+require('./app_server/config/passport');
+const passport = require('passport');
+
+// Initialize Passport (must be after app is created)
+app.use(passport.initialize());
 
 // view engine
 app.set('views', path.join(__dirname, 'app_server', 'views'));

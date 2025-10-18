@@ -1,6 +1,8 @@
 // app_server/models/db.js
 // Mongoose connection: prefers MONGODB_URI, otherwise builds from parts. Keep logs clean and shutdown tidy.
 require('dotenv').config();
+require('./user');  // registers the User model
+
 const mongoose = require('mongoose');
 
 mongoose.set('strictQuery', true);
@@ -29,7 +31,8 @@ const mask = (u) => u.replace(/:\/\/(.*?@)/, '://<credentials>@');
     await mongoose.connect(uri);
     console.log('MongoDB connected');
     console.log(`URI: ${mask(uri)}`);
-    require('./trip');  
+    require('./trip');
+    require('./user');   
   } catch (err) {
     console.error('MongoDB connection error:', err.message);
     process.exit(1);
