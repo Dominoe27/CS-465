@@ -7,31 +7,31 @@
 
 ## Architecture  
 
-Throughout this project, I worked with both traditional frontend development and modern single-page application design. The Express portion handled the static pages and server-side rendering for the customer view, while the Angular application served as the admin interface. Working with Angular gave me a clear understanding of how a single-page application (SPA) can create a more dynamic and responsive user experience. Unlike traditional Express rendering that reloads the page with every request, the SPA updates content instantly, which feels smoother and more efficient overall.  
+This project gave me the chance to work with both traditional frontend development and a modern single-page application. On the customer side, the Express app handled static pages and server-side rendering. For the admin side, I built an Angular SPA that offered a smoother and more interactive experience. The SPA stood out right away because it could update content instantly without having to reload entire pages, which made everything feel faster and cleaner.  
 
-For the backend, we used MongoDB as our NoSQL database. This choice made sense because MongoDB stores data in flexible, JSON-like documents, which fit naturally with the JavaScript environment used across the project. It eliminated the need for a strict schema and allowed trip data to be stored and retrieved easily. According to AltexSoft (2023), one of the biggest advantages of the MEAN stack is that JavaScript can be used on both the client and server sides, which simplifies the development process and helps maintain consistency across the application.  
+On the backend, we used MongoDB, a NoSQL database that stores data in flexible, JSON-like documents. It worked perfectly with JavaScript and the rest of the MEAN stack. Since MongoDB doesn’t require a strict schema, it was easy to adjust data models as the project grew. AltexSoft (2023) points out that one of the main advantages of the MEAN stack is how JavaScript connects every part of the application, which keeps development consistent from the frontend to the database.  
 
 ---
 
 ## Functionality  
 
-JSON, or JavaScript Object Notation, is different from JavaScript even though they look similar. JSON is purely for data storage and transfer, while JavaScript is used for logic and functionality. JSON acts as the connector between the frontend and backend by formatting data in a way that both sides can understand. For example, when the admin adds or edits a trip, Angular sends a JSON payload to the Express API, which then updates MongoDB and returns the new trip data in JSON format for display.  
+Even though JSON looks like JavaScript, it serves a different purpose. JSON is just for storing and transferring data, while JavaScript handles logic and functionality. In this project, JSON was what tied everything together. When an admin added or edited a trip, Angular sent that data as a JSON object to the Express API, which then updated MongoDB and returned the refreshed information back in JSON format.  
 
-I refactored parts of the code several times throughout development to make it more efficient. One improvement was consolidating repeated logic in the API routes by turning it into reusable functions. On the Angular side, I created reusable components such as the trip form and trip list, which saved time and made the project easier to maintain. Reusable UI components also helped keep the design consistent and reduced the amount of redundant code that could lead to errors.  
+I made several changes during development to clean up and streamline the code. On the backend, I turned repeated route logic into reusable functions, which reduced clutter and made debugging easier. On the Angular side, I built shared components like the trip list and trip form. Reusing these pieces kept the interface consistent and saved time when I needed to make updates later.  
 
 ---
 
 ## Testing  
 
-Testing was a major part of making sure the application worked as intended. I used Postman to send GET, POST, and PUT requests to confirm that the API endpoints were responding correctly and that the database was updating as expected. When security was added through JWT authentication, testing became more complex because endpoints required a valid token. I learned how to simulate secure requests by including authorization headers in Postman and verifying that unauthorized users were blocked. This helped me understand how different HTTP methods, middleware, and authentication layers work together to protect data and control access within a full stack environment.  
+Testing played a big part in making sure the system actually worked the way I wanted it to. I used Postman to test my API endpoints by sending GET, POST, and PUT requests and checking that data was being returned or updated correctly. Once I added JWT authentication, testing became a little trickier because I had to include a valid token with each request. Learning how to simulate secure requests with authorization headers helped me understand how authentication, middleware, and HTTP methods all fit together to protect the application.  
 
 ---
 
 ## Reflection  
 
-This course brought together everything I’ve learned about full stack development. Building a working MEAN application from start to finish gave me real-world experience with connecting the frontend, backend, and database into one system. I gained a deeper understanding of how APIs communicate with the client side, how authentication works, and how to organize code that can grow and scale.  
+This course really pulled everything together for me. Building a full MEAN application from start to finish helped me see how all the pieces of web development connect. I learned how APIs communicate with the frontend, how authentication protects data, and how to organize code that can scale over time.  
 
-Professionally, this course helped me feel more prepared to take on roles in software or web development. I’ve improved my skills in JavaScript, Node.js, and Angular, and I now feel confident setting up and securing a full stack project. These experiences make me a stronger and more marketable candidate because I can manage both client-facing and administrative systems, while keeping performance and security in mind.  
+Professionally, this course gave me skills that will help me move forward in my career. I’m now much more confident working with JavaScript, Node.js, and Angular. I also understand how to secure and test my applications instead of just making them function. These are skills that make me more competitive and capable of taking on real-world full stack projects in the future.  
 
 ---
 
